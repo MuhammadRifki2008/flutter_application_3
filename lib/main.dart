@@ -4,7 +4,7 @@ import 'package:flutter_application_3/layout.dart';
 //import 'package:flutter_application_3/profile.dart';
 //import 'package:flutter_application_3/layout_widget.dart';
 //import 'package:flutter_application_3/layout_listview.dart';
-//import 'package:flutter_application_3/profile.dart';
+// import 'package:flutter_application_3/profile.dart';
 //import 'package:flutter_application_3/layout_listview2.dart';
 
 void main() {
@@ -18,8 +18,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       title: "Aplikasi Flutter",
-      home:MyApp()
-    
+      home: const MyApp(),
     );
   }
 }
