@@ -2,67 +2,100 @@ import 'package:flutter/material.dart';
 
 // --- 1. Class Abstrak ---
 abstract class ListItem {
-  Widget buildTitle(BuildContext context);
-  Widget buildSubtitle(BuildContext context);
-  Widget? buildLeading(BuildContext context) => null; // opsional leading
+  Widget buildItem(BuildContext context);
 }
 
 // --- 2. HeadingItem ---
-class HeadingItem implements ListItem {
+class HeadingItem extends ListItem {
   final String heading;
   HeadingItem(this.heading);
 
   @override
-  Widget buildTitle(BuildContext context) {
-    return Text(
-      heading,
-      style: const TextStyle(
-        color: Colors.blue,
-        fontSize: 24, // lebih besar dari default
-        fontWeight: FontWeight.bold,
+  Widget buildItem(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Text(
+        heading,
+        style: const TextStyle(
+          color: Colors.blue,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
-
-  @override
-  Widget buildSubtitle(BuildContext context) => const SizedBox.shrink();
 }
 
 // --- 3. MessageItem ---
-class MessageItem implements ListItem {
+class MessageItem extends ListItem {
   final String sender;
   final String body;
   MessageItem(this.sender, this.body);
 
   @override
-  Widget buildTitle(BuildContext context) => Text(sender);
-
-  @override
-  Widget buildSubtitle(BuildContext context) => Text(body);
-
-  @override
-  Widget? buildLeading(BuildContext context) => const Icon(Icons.message);
+  Widget buildItem(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.message, color: Colors.blue),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    sender,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(body),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-// --- 4. ImageItem (baru) ---
-class ImageItem implements ListItem {
+
+// --- 4. ImageItem ---
+class ImageItem extends ListItem {
   final String title;
   final String imagePath;
   ImageItem(this.title, this.imagePath);
 
   @override
-  Widget buildTitle(BuildContext context) => Text(title);
-
-  @override
-  Widget buildSubtitle(BuildContext context) => const SizedBox.shrink();
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return Image.asset(
-      imagePath,
-      width: 50,
-      height: 50,
-      fit: BoxFit.cover,
+  Widget buildItem(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Judul di atas gambar
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          // Gambar full lebar
+          Image.asset(
+            imagePath,
+            width: double.infinity,
+            height: 200,
+            fit: BoxFit.cover,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -73,22 +106,21 @@ class LayoutListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // --- 5 & 6. Data contoh ---
     final List<ListItem> items = List<ListItem>.generate(
       30,
       (i) {
         if (i % 5 == 0) {
           return HeadingItem('Heading $i');
-        } else if (i % 2 == 0) {
-          return MessageItem('Sender $i', 'Message body $i');
-        } else {
-          // tambahkan minimal 3 gambar (images/ harus ada di pubspec.yaml)
+        } else if (i % 3 == 0) {
           final images = [
-            'images/pic1.png',
-            'images/pic2.png',
-            'images/pic3.png',
+            'images/ft1.jpg',
+            'images/ft2.jpg',
+            'images/ft3.jpg',
           ];
-          return ImageItem('Image $i', images[i % images.length]);
+          // pakai i ~/ 3 biar gambar ganti tiap kelipatan 3
+          return ImageItem('Image Item $i', images[(i ~/ 3) % images.length]);
+        } else {
+          return MessageItem('Sender $i', 'Message body $i');
         }
       },
     );
@@ -100,22 +132,9 @@ class LayoutListItem extends StatelessWidget {
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
-          final item = items[index];
-          return ListTile(
-            leading: item.buildLeading(context),
-            title: item.buildTitle(context),
-            subtitle: item.buildSubtitle(context),
-          );
+          return items[index].buildItem(context);
         },
       ),
     );
   }
-}
-
-void main() {
-  runApp(
-    const MaterialApp(
-      home: LayoutListItem(),
-    ),
-  );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/layout.dart';
+// import 'package:flutter_application_3/layout.dart';
+import 'package:flutter_application_3/TugasModul4.dart';
 //import 'package:flutter_application_3/layout_GridView.dart';
 //import 'package:flutter_application_3/profile.dart';
 //import 'package:flutter_application_3/layout_widget.dart';
@@ -17,8 +18,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Aplikasi Flutter",
-      home: const MyApp(),
+      home: LayoutListItem(),
     );
   }
 }
