@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_application_3/layout.dart';
-// import 'package:flutter_application_3/TugasModul4.dart';
+import 'package:flutter_application_3/TugasModul4.dart';
 //import 'package:flutter_application_3/layout_GridView.dart';
-import 'package:flutter_application_3/TugasModul2.dart';
+// import 'package:flutter_application_3/TugasModul2.dart';
 // import 'package:flutter_application_3/TugasModul3.dart';
 //import 'package:flutter_application_3/layout_widget.dart';
 //import 'package:flutter_application_3/layout_listview.dart';
@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Aplikasi Flutter",
-      home: Profile(),
+      home: LayoutModul4(),
     );
   }
 }
