@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_application_3/layout.dart';
-import 'package:flutter_application_3/TugasModul4.dart';
+// import 'package:flutter_application_3/TugasModul4.dart';
 //import 'package:flutter_application_3/layout_GridView.dart';
 // import 'package:flutter_application_3/TugasModul2.dart';
 // import 'package:flutter_application_3/TugasModul3.dart';
@@ -8,9 +8,10 @@ import 'package:flutter_application_3/TugasModul4.dart';
 //import 'package:flutter_application_3/layout_listview.dart';
 // import 'package:flutter_application_3/profile.dart';
 //import 'package:flutter_application_3/layout_listview2.dart';
-import 'package:flutter_application_3/spaced_list.dart';
-import 'package:flutter_application_3/long_list.dart';
-import 'package:flutter_application_3/TugasModul5.dart';
+// import 'package:flutter_application_3/spaced_list.dart';
+import 'package:flutter_application_3/spaced.dart';
+// import 'package:flutter_application_3/long_list.dart';
+// import 'package:flutter_application_3/TugasModul5.dart';
 
 void main() {
   runApp(const MainApp());
@@ -24,7 +25,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Aplikasi Flutter",
-      home: LayoutModul4(),
+      home: SpacedList(),
     );
   }
 }
