@@ -15,7 +15,7 @@ class Profile extends StatelessWidget {
           SizedBox(height: 30,),
           CircleAvatar(
             radius: 100,
-            backgroundImage: AssetImage('images/alok.jpeg'),
+            backgroundImage: AssetImage('images/azis.jpeg'),
           ),
           SizedBox(height: 20,),
           Text('M. Rifki A.A',),
