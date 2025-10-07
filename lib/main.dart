@@ -9,9 +9,11 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_application_3/profile.dart';
 //import 'package:flutter_application_3/layout_listview2.dart';
 // import 'package:flutter_application_3/spaced_list.dart';
-import 'package:flutter_application_3/spaced.dart';
+// import 'package:flutter_application_3/spaced.dart';
 // import 'package:flutter_application_3/long_list.dart';
 // import 'package:flutter_application_3/TugasModul5.dart';
+import 'package:flutter_application_3/TugasProfile.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -24,7 +26,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Aplikasi Flutter",
+      title: "Profile",
       home: SpacedList(),
     );
   }
