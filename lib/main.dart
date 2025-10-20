@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_application_3/spaced.dart';
 // import 'package:flutter_application_3/long_list.dart';
 // import 'package:flutter_application_3/TugasModul5.dart';
-import 'package:flutter_application_3/TugasProfile.dart';
+// import 'package:flutter_application_3/TugasProfile.dart';
+import 'package:flutter_application_3/Latihan.dart';
+
 
 
 void main() {
@@ -27,7 +29,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Profile",
-      home: SpacedList(),
+      home: LatihanPro(),
     );
   }
 }
