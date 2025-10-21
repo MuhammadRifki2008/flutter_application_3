@@ -13,7 +13,14 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_application_3/long_list.dart';
 // import 'package:flutter_application_3/TugasModul5.dart';
 // import 'package:flutter_application_3/TugasProfile.dart';
-import 'package:flutter_application_3/Latihan.dart';
+// import 'package:flutter_application_3/Latihan.dart';
+// import 'package:flutter_application_3/Latihan2.dart';
+// import 'package:flutter_application_3/Latihan3.dart';
+// import 'package:flutter_application_3/Latihan5.dart';
+// import 'package:flutter_application_3/Latihan6.dart';
+// import 'package:flutter_application_3/Favorit_Widget.dart';
+import 'package:flutter_application_3/TugasModul6.dart';
+
 
 
 
@@ -29,7 +36,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Profile",
-      home: LatihanPro(),
+      home: WidgetInteraktif(),
     );
   }
 }
